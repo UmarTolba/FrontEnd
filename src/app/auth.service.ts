@@ -40,11 +40,12 @@ export class AuthService {
   }
 
   register(users: Users): Observable<object> {
+    const normalizedRole = users.role === 'ADMIN' ? 'ROLE_ADMIN' : 'ROLE_USER';
     return this.http.post(`${this.baseUrl}/users`, {
       name: users.name,
       email: users.email,
       password: users.password,
-      role: users.role || 'USER'
+      role: normalizedRole
     });
   }
 

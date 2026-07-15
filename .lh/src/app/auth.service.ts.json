@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 4,
+            "activePatchIndex": 5,
             "patches": [
                 {
                     "date": 1784100174319,
@@ -24,6 +24,10 @@
                 {
                     "date": 1784103293925,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,10 +14,10 @@\n \r\n   constructor(private http: HttpClient) { }\r\n \r\n   login(authRequest: AuthRequest): Observable<AuthResponse> {\r\n-    return this.http.post<AuthResponse>(`${this.baseUrl}/login`, {\r\n-      username: authRequest.username,\r\n+    return this.http.post<AuthResponse>(`${this.baseUrl}/auth/login`, {\r\n+      email: authRequest.username,\r\n       password: authRequest.password\r\n     }).pipe(\r\n       tap(response => {\r\n         if (response && response.token) {\r\n@@ -39,19 +39,16 @@\n     return !!this.getToken();\r\n   }\r\n \r\n   register(users: Users): Observable<object> {\r\n-    const roleValue = users.role || 'USER';\r\n-    return this.http.post(`${this.baseUrl}/register`, {\r\n-      username: users.name,\r\n+    return this.http.post(`${this.baseUrl}/users`, {\r\n+      name: users.name,\r\n       email: users.email,\r\n       password: users.password,\r\n-      firstName: users.name,\r\n-      lastName: users.name,\r\n-      role: roleValue\r\n+      role: users.role || 'USER'\r\n     });\r\n   }\r\n \r\n   getProfile(): Observable<Users> {\r\n-    return this.http.get<Users>(`${this.baseUrl}/profile`);\r\n+    return this.http.get<Users>(`${this.baseUrl}/users/profile`);\r\n   }\r\n }\r\n"
+                },
+                {
+                    "date": 1784103509428,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,13 +39,14 @@\n     return !!this.getToken();\r\n   }\r\n \r\n   register(users: Users): Observable<object> {\r\n+    const normalizedRole = users.role === 'ADMIN' ? 'ROLE_ADMIN' : 'ROLE_USER';\r\n     return this.http.post(`${this.baseUrl}/users`, {\r\n       name: users.name,\r\n       email: users.email,\r\n       password: users.password,\r\n-      role: users.role || 'USER'\r\n+      role: normalizedRole\r\n     });\r\n   }\r\n \r\n   getProfile(): Observable<Users> {\r\n"
                 }
             ],
             "date": 1784100174319,
