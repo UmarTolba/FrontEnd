@@ -15,8 +15,8 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(authRequest: AuthRequest): Observable<AuthResponse> {
-    return this.http.post<AuthResponse>(`${this.baseUrl}/login`, {
-      username: authRequest.username,
+    return this.http.post<AuthResponse>(`${this.baseUrl}/auth/login`, {
+      email: authRequest.username,
       password: authRequest.password
     }).pipe(
       tap(response => {
@@ -40,18 +40,15 @@ export class AuthService {
   }
 
   register(users: Users): Observable<object> {
-    const roleValue = users.role || 'USER';
-    return this.http.post(`${this.baseUrl}/register`, {
-      username: users.name,
+    return this.http.post(`${this.baseUrl}/users`, {
+      name: users.name,
       email: users.email,
       password: users.password,
-      firstName: users.name,
-      lastName: users.name,
-      role: roleValue
+      role: users.role || 'USER'
     });
   }
 
   getProfile(): Observable<Users> {
-    return this.http.get<Users>(`${this.baseUrl}/profile`);
+    return this.http.get<Users>(`${this.baseUrl}/users/profile`);
   }
 }
