@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/app/register/register.component.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1784100535484,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1784100535484,
+            "name": "Commit-0",
+            "content": "import { Component, OnInit } from '@angular/core';\r\nimport { AuthService } from '../auth.service';\r\nimport { RegisterRequest } from '../auth-models';\r\nimport { Users } from '../Users';\r\n//\r\n\r\n@Component({\r\n  selector: 'app-register',\r\n  templateUrl: './register.component.html',\r\n  styleUrls: ['./register.component.css']\r\n})\r\nexport class RegisterComponent implements OnInit {\r\n  user: Users = new Users();\r\n  errorMessage = '';\r\n  successMessage = '';\r\n\r\n  constructor(private authService: AuthService) { }\r\n\r\n  ngOnInit(): void {\r\n  }\r\n\r\n    // onSubmit(): void {\r\n    //   this.authService.register(this.user).subscribe(\r\n\r\n    //     data => {\r\n    //       this.successMessage = 'Registration successful! You can now login.';\r\n    //       this.errorMessage = '';\r\n    //     },\r\n    //           err => {\r\n    //       // console.error(err); // Log the full error to the console for debugging\r\n    //       this.errorMessage = 'Registration failed. Please check the console for more details.';\r\n    //       if (err.error && typeof err.error === 'object' && err.error.error) {\r\n    //           this.errorMessage = err.error.error;\r\n    //       } else if (err.status === 403) {\r\n    //           this.errorMessage = 'Registration forbidden. This may be a security configuration issue on the server.';\r\n    //       }\r\n    //       this.successMessage = '';\r\n    //     }\r\n    //   );\r\n    // }\r\n    savReq() {\r\n      this.authService.register(this.user).subscribe(\r\n        () => {\r\n          this.successMessage = 'Registration successful! You can now login.';\r\n          this.errorMessage = '';\r\n        },\r\n        err => {\r\n          console.error(err);\r\n          this.errorMessage = err?.error?.message || err?.message || 'Registration failed. Backend is not reachable.';\r\n          this.successMessage = '';\r\n        }\r\n      );\r\n    }\r\n  \r\n"
+        }
+    ]
+}
