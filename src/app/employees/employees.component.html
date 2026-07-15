@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="card">
+        <h3 class="text-center">Employees List</h3>
+        <div class="card-body">
+            <table class="table table-dark table-hover">
+                <thead>
+                    <tr>
+                        <th>EmployeeID</th>
+                        <th>FirstName</th>
+                        <th>LastName</th>
+                        <th>Email</th>
+                        <th> Actions </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let employee of employees ">
+                        <td>{{employee.employeeId}}</td>
+                        <td>{{employee.firstName}}</td>
+                        <td>{{employee.lastName}}</td>
+                        <td>{{employee.email}}</td>
+                        <td>
+                            <button (click) = "updateEmployee(employee.employeeId)" class = "btn btn-info"> Update</button>
+                            <button (click) = "deleteEmployee(employee.employeeId)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                            <button (click) = "employeeDetails(employee.employeeId)" class = "btn btn-info" style="margin-left: 10px"> View</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

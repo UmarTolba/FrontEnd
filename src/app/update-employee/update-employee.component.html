@@ -1,0 +1,58 @@
+<div class="col-md-6 offset-md-3">
+    <h3> Update Employee </h3>
+    <form (ngSubmit) = "onSubmit()">
+    
+        <div class="form-group">
+            <label> First Name</label>
+            <input type="text" class ="form-control" id = "firstName" [(ngModel)] = "employee.firstName" name = "firstName">
+        </div>
+    
+        <div class="form-group">
+            <label> Last Name</label>
+            <input type="text" class ="form-control" id = "lastName" [(ngModel)] = "employee.lastName" name = "lastName">
+        </div>
+    
+        <div class="form-group">
+            <label> Email Id</label>
+            <input type="text" class ="form-control" id = "email" [(ngModel)] = "employee.email" name = "email">
+        </div>
+
+        <div class="form-group">
+            <label> Phone Number</label>
+            <input type="text" class ="form-control" id = "phoneNumber" [(ngModel)] = "employee.phoneNumber" name = "phoneNumber">
+        </div>
+
+        <div class="form-group">
+            <label> Department ID</label>
+            <input type="text" class ="form-control" id = "departmentId" [(ngModel)] = "employee.departmentId" name = "departmentId">
+        </div>
+
+        <div class="form-group">
+            <label> Job ID</label>
+            <input type="text" class ="form-control" id = "jobId" [(ngModel)] = "employee.jobId" name = "jobId">
+        </div>
+
+        <div class="form-group">
+            <label> Salary</label>
+            <input type="text" class ="form-control" id = "salary" [(ngModel)] = "employee.salary" name = "salary">
+        </div>
+
+        <div class="form-group">
+            <label> Hire Date</label>
+            <input type="date" class ="form-control" id = "hireDate" [(ngModel)] = "employee.hireDate" name = "hireDate">
+        </div>
+
+        <div class="form-group">
+            <label> Commission PCT</label>
+            <input type="text" class ="form-control" id = "commissionPct" [(ngModel)] = "employee.commissionPct" name = "commissionPct">
+        </div>
+
+        <div class="form-group">
+            <label> Manager ID</label>
+            <input type="text" class ="form-control" id = "managerId" [(ngModel)] = "employee.managerId" name = "managerId">
+        </div>
+    
+        <button class = "btn btn-success" type ="submit">Submit</button>
+    
+    </form>
+    </div>
