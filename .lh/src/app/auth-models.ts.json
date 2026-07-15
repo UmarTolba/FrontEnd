@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/app/auth-models.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1784102699305,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1784102699305,
+            "name": "Commit-0",
+            "content": "import { Role } from './Users';\r\n\r\nexport interface AuthRequest {\r\n  username?: string;\r\n  password?: string;\r\n}\r\n\r\nexport interface AuthResponse {\r\n  token: string;\r\n  type: string;\r\n  name: string;\r\n  role: string;\r\n}\r\n\r\nexport interface RegisterRequest {\r\n  username?: string;\r\n  email?: string;\r\n  password?: string;\r\n  firstName?: string;\r\n  lastName?: string;\r\n  role?: Role;\r\n}\r\n"
+        }
+    ]
+}
