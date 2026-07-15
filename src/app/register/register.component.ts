@@ -46,7 +46,8 @@ export class RegisterComponent implements OnInit {
         },
         err => {
           console.error(err);
-          this.errorMessage = err?.error?.message || err?.message || 'Registration failed. Backend is not reachable.';
+          const backendMessage = err?.error?.error || err?.error?.message || err?.message;
+          this.errorMessage = backendMessage || 'Registration failed. Backend is not reachable.';
           this.successMessage = '';
         }
       );

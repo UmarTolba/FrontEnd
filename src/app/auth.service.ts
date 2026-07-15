@@ -9,12 +9,15 @@ import { AuthRequest, AuthResponse, RegisterRequest } from './auth-models';
 })
 export class AuthService {
 
-    private baseUrl = '/api/users';
+    private baseUrl = '/auth';
 
   constructor(private http: HttpClient) { }
 
   login(authRequest: AuthRequest): Observable<AuthResponse> {
-    return this.http.post<AuthResponse>(`${this.baseUrl}/login`, authRequest).pipe(
+    return this.http.post<AuthResponse>(`${this.baseUrl}/login`, {
+      username: authRequest.username,
+      password: authRequest.password
+    }).pipe(
       tap(response => {
         if (response && response.token) {
           localStorage.setItem('authToken', response.token);
@@ -36,9 +39,14 @@ export class AuthService {
   }
 
   register(users: Users): Observable<object> {
-
-
-    return this.http.post(`${this.baseUrl}`, users);
+    return this.http.post(`${this.baseUrl}/register`, {
+      username: users.name,
+      email: users.email,
+      password: users.password,
+      firstName: users.name,
+      lastName: '',
+      role: users.role
+    });
   }
 
   getProfile(): Observable<Users> {

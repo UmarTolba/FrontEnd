@@ -1,7 +1,7 @@
 import { Role } from './Users';
 
 export interface AuthRequest {
-  name?: string;
+  username?: string;
   password?: string;
 }
 
@@ -13,8 +13,10 @@ export interface AuthResponse {
 }
 
 export interface RegisterRequest {
-  name?: string;
+  username?: string;
   email?: string;
   password?: string;
+  firstName?: string;
+  lastName?: string;
   role?: Role;
 }
