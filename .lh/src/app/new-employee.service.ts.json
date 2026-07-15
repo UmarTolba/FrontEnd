@@ -3,11 +3,15 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 1,
             "patches": [
                 {
                     "date": 1784100174328,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1784102779557,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,16 @@\n import { Injectable } from '@angular/core';\r\n import { HttpClient } from '@angular/common/http';\r\n import { Observable } from 'rxjs';\r\n import { Employees } from './employees';\r\n+import { environment } from '../environments/environment';\r\n \r\n @Injectable({\r\n   providedIn: 'root'\r\n })\r\n export class NewEmployeeService {\r\n \r\n-    private baseUrl = '/employees';\r\n+    private baseUrl = `${environment.apiBaseUrl}/employees`;\r\n \r\n   constructor(private http: HttpClient) { }\r\n \r\n   getAllEmployees(): Observable<Employees[]> {\r\n"
                 }
             ],
             "date": 1784100174328,

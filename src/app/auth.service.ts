@@ -3,13 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 import { Users } from './Users';
 import { AuthRequest, AuthResponse, RegisterRequest } from './auth-models';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-    private baseUrl = '/auth';
+    private baseUrl = `${environment.apiBaseUrl}/auth`;
 
   constructor(private http: HttpClient) { }
 
