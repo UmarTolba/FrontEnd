@@ -20,12 +20,12 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
     this.authService.login(this.form).subscribe(
       data => {
-        // Store token, navigate to profile
+        localStorage.setItem('authToken', data.token);
         localStorage.setItem('token', data.token);
         this.router.navigate(['/profile']);
       },
       err => {
-        this.errorMessage = err.error.message || 'Login failed';
+        this.errorMessage = err?.error?.message || err?.message || 'Login failed';
       }
     );
   }
