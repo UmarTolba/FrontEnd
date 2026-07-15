@@ -2,8 +2,8 @@
   <h2>Register</h2>
   <form (ngSubmit)="savReq()" #registerForm="ngForm">
     <div class="form-group">
-      <label for="name">name</label>
-      <input type="text" class="form-control" id="name" required [(ngModel)]="user.name" name="name">
+      <label for="name">Username</label>
+      <input type="text" class="form-control" id="name" required minlength="3" [(ngModel)]="user.name" name="name">
     </div>
     <div class="form-group">
       <label for="email">Email</label>
@@ -11,7 +11,7 @@
     </div>
     <div class="form-group">
       <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" required [(ngModel)]="user.password" name="password">
+      <input type="password" class="form-control" id="password" required minlength="6" [(ngModel)]="user.password" name="password">
     </div>
     <div class="form-group">
       <label for="role">Role</label>

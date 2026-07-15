@@ -40,13 +40,14 @@ export class AuthService {
   }
 
   register(users: Users): Observable<object> {
+    const roleValue = users.role || 'USER';
     return this.http.post(`${this.baseUrl}/register`, {
       username: users.name,
       email: users.email,
       password: users.password,
       firstName: users.name,
-      lastName: '',
-      role: users.role
+      lastName: users.name,
+      role: roleValue
     });
   }
 

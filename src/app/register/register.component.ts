@@ -11,10 +11,12 @@ import { Users } from '../Users';
 })
 export class RegisterComponent implements OnInit {
   user: Users = new Users();
+
+  constructor(private authService: AuthService) {
+    this.user.role = 'USER' as any;
+  }
   errorMessage = '';
   successMessage = '';
-
-  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
   }

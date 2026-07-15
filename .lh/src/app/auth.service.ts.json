@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 2,
+            "activePatchIndex": 3,
             "patches": [
                 {
                     "date": 1784100174319,
@@ -16,6 +16,10 @@
                 {
                     "date": 1784102779222,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,15 +2,16 @@\n import { HttpClient } from '@angular/common/http';\r\n import { Observable, tap } from 'rxjs';\r\n import { Users } from './Users';\r\n import { AuthRequest, AuthResponse, RegisterRequest } from './auth-models';\r\n+import { environment } from '../environments/environment';\r\n \r\n @Injectable({\r\n   providedIn: 'root'\r\n })\r\n export class AuthService {\r\n \r\n-    private baseUrl = '/auth';\r\n+    private baseUrl = `${environment.apiBaseUrl}/auth`;\r\n \r\n   constructor(private http: HttpClient) { }\r\n \r\n   login(authRequest: AuthRequest): Observable<AuthResponse> {\r\n"
+                },
+                {
+                    "date": 1784102944330,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,15 +39,16 @@\n     return !!this.getToken();\r\n   }\r\n \r\n   register(users: Users): Observable<object> {\r\n+    const roleValue = users.role || 'USER';\r\n     return this.http.post(`${this.baseUrl}/register`, {\r\n       username: users.name,\r\n       email: users.email,\r\n       password: users.password,\r\n       firstName: users.name,\r\n-      lastName: '',\r\n-      role: users.role\r\n+      lastName: users.name,\r\n+      role: roleValue\r\n     });\r\n   }\r\n \r\n   getProfile(): Observable<Users> {\r\n"
                 }
             ],
             "date": 1784100174319,
