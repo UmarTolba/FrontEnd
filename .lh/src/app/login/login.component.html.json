@@ -3,11 +3,15 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 1,
             "patches": [
                 {
                     "date": 1784102699308,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1784103302024,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,10 @@\n <div class=\"container\">\r\n   <h2>Login</h2>\r\n   <form (ngSubmit)=\"onSubmit()\" #loginForm=\"ngForm\">\r\n     <div class=\"form-group\">\r\n-      <label for=\"username\">Username</label>\r\n-      <input type=\"text\" class=\"form-control\" id=\"username\" required [(ngModel)]=\"form.username\" name=\"username\">\r\n+      <label for=\"email\">Email</label>\r\n+      <input type=\"email\" class=\"form-control\" id=\"email\" required [(ngModel)]=\"form.username\" name=\"email\">\r\n     </div>\r\n     <div class=\"form-group\">\r\n       <label for=\"password\">Password</label>\r\n       <input type=\"password\" class=\"form-control\" id=\"password\" required [(ngModel)]=\"form.password\" name=\"password\">\r\n"
                 }
             ],
             "date": 1784102699308,
