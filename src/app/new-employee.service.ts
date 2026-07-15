@@ -8,7 +8,7 @@ import { Employees } from './employees';
 })
 export class NewEmployeeService {
 
-    private baseUrl = 'http://localhost:8081/employees';
+    private baseUrl = '/employees';
 
   constructor(private http: HttpClient) { }
 

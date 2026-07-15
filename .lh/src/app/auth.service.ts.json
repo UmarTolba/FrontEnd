@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/app/auth.service.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1784100174319,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1784100174319,
+            "name": "Commit-0",
+            "content": "import { Injectable } from '@angular/core';\r\nimport { HttpClient } from '@angular/common/http';\r\nimport { Observable, tap } from 'rxjs';\r\nimport { Users } from './Users';\r\nimport { AuthRequest, AuthResponse, RegisterRequest } from './auth-models';\r\n\r\n@Injectable({\r\n  providedIn: 'root'\r\n})\r\nexport class AuthService {\r\n\r\n    private baseUrl = '/api/users';\r\n\r\n  constructor(private http: HttpClient) { }\r\n\r\n  login(authRequest: AuthRequest): Observable<AuthResponse> {\r\n    return this.http.post<AuthResponse>(`${this.baseUrl}/login`, authRequest).pipe(\r\n      tap(response => {\r\n        if (response && response.token) {\r\n          localStorage.setItem('authToken', response.token);\r\n        }\r\n      })\r\n    );\r\n  }\r\n\r\n  logout(): void {\r\n    localStorage.removeItem('authToken');\r\n  }\r\n\r\n  getToken(): string | null {\r\n    return localStorage.getItem('authToken');\r\n  }\r\n\r\n  isAuthenticated(): boolean {\r\n    return !!this.getToken();\r\n  }\r\n\r\n  register(users: Users): Observable<object> {\r\n\r\n\r\n    return this.http.post(`${this.baseUrl}`, users);\r\n  }\r\n\r\n  getProfile(): Observable<Users> {\r\n    return this.http.get<Users>(`${this.baseUrl}/profile`);\r\n  }\r\n}\r\n"
+        }
+    ]
+}

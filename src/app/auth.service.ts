@@ -9,8 +9,7 @@ import { AuthRequest, AuthResponse, RegisterRequest } from './auth-models';
 })
 export class AuthService {
 
-    private baseUrl = 'http://localhost:8081/api/users';
-//                     http://localhost:8081/api/users
+    private baseUrl = '/api/users';
 
   constructor(private http: HttpClient) { }
 

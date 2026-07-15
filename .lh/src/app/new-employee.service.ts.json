@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/app/new-employee.service.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1784100174328,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1784100174328,
+            "name": "Commit-0",
+            "content": "import { Injectable } from '@angular/core';\r\nimport { HttpClient } from '@angular/common/http';\r\nimport { Observable } from 'rxjs';\r\nimport { Employees } from './employees';\r\n\r\n@Injectable({\r\n  providedIn: 'root'\r\n})\r\nexport class NewEmployeeService {\r\n\r\n    private baseUrl = '/employees';\r\n\r\n  constructor(private http: HttpClient) { }\r\n\r\n  getAllEmployees(): Observable<Employees[]> {\r\n    return this.http.get<Employees[]>(`${this.baseUrl}`);\r\n  }\r\n\r\n  getEmployeeById(id: number): Observable<Employees> {\r\n    return this.http.get<Employees>(`${this.baseUrl}/${id}`);\r\n  }\r\n\r\n  createEmployee(employee: Employees): Observable<Object> {\r\n    return this.http.post(`${this.baseUrl}`, employee);\r\n  }\r\n\r\n  updateEmployee(id: number, employee: Employees): Observable<Object> {\r\n    return this.http.put(`${this.baseUrl}/${id}`, employee);\r\n  }\r\n\r\n  deleteEmployee(id: number): Observable<Object> {\r\n    return this.http.delete(`${this.baseUrl}/${id}`);\r\n  }\r\n}\r\n"
+        }
+    ]
+}
